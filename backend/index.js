@@ -10,6 +10,8 @@ const app = express();
 app.use(express.json());
 
 // Cors Middleware
+app.use(cors());
+/*
 app.use(
   cors({
     origin: 'http://localhost:3000',
@@ -17,6 +19,7 @@ app.use(
     allowedHeaders: ['Content-Type'],
   })
 );
+*/
 
 app.get('/', (request, response) => {
   console.log(request);
