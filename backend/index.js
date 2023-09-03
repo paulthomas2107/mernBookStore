@@ -2,11 +2,21 @@ import express, { request, response } from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import bookRoutes from './routes/booksRoutes.js';
+import cors from 'cors';
 
 const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Cors Middleware
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    method: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 
 app.get('/', (request, response) => {
   console.log(request);
